@@ -1,176 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제닉스 Pre-IPO Account</title>
-    <style>
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Pretendard', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            text-align: center;
-            color: #333;
-            overflow: hidden;
-        }
-
-        /* 배경 컨테이너 */
-        .background-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: url('https://i.ibb.co/3Thk8ss/image.png') no-repeat center center fixed;
-            background-size: cover;
-            filter: blur(3px);
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            max-width: 750px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-        }
-
-        .overlay {
-            position: absolute;
-            width: 300px;
-            height: 283px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-        }
-
-        .btn {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            max-width: 300px;
-            padding: 15px;
-            background-color: #007aff;
-            color: white;
-            font-size: 1.1em;
-            font-weight: 500;
-            text-align: center;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            z-index: 2;
-        }
-
-        .btn:hover {
-            background-color: #005bb5;
-        }
-
-        /* 로딩 스피너 스타일 */
-        .loader {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 6px solid #f3f3f3;
-            border-top: 6px solid #007aff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
-            z-index: 9999;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* 로딩 텍스트 스타일 */
-        .loading-text {
-            display: none;
-            position: fixed;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.7em;
-            color: #fff;
-            z-index: 9999;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6); /* 반투명한 검정 배경 */
-            border-radius: 10px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* 애니메이션 효과 */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* 기업 발표회 느낌 애니메이션 */
-        @keyframes slideIn {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .container, .btn {
-            animation: slideIn 0.8s ease-out;
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>제닉스 Pre-IPO Account</title>
+  <link rel="stylesheet" href="styles.css"> <!-- 스타일 시트 링크 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap">
 </head>
 <body>
 
-    <!-- 배경 -->
-    <div class="background-container"></div>
+  <!-- 이미지 1 -->
+  <div class="image1">
+    <img src="https://i.ibb.co/pQ8KsQM/image.png" alt="이미지 1">
+  </div>
 
-    <div class="container">
-        <!-- PNG 이미지 위에 배치 -->
-        <img src="https://i.ibb.co/L1CZwrc/image.png" alt="PNG Image" class="overlay">
+  <!-- 이미지 2 -->
+  <div class="image2">
+    <img src="https://i.ibb.co/hcTpd7J/image.png" alt="이미지 2">
+  </div>
 
-        <!-- 버튼 -->
-        <a href="#" class="btn" onclick="showLoading()">보유주수 확인하기</a>
-    </div>
+  <!-- 버튼 1: myaccount.html로 이동 -->
+  <a href="#" class="button button1" id="button1">
+    <img src="https://i.ibb.co/X2zXYvT/image.png" alt="버튼 1">
+  </a>
 
-    <!-- 로딩 스피너 -->
-    <div class="loader" id="loader"></div>
+  <!-- 버튼 2: 하이퍼링크로 새탭 열림 -->
+  <a href="#" class="button button2" id="button2">
+    <img src="https://i.ibb.co/7C8RYRv/image.png" alt="버튼 2">
+  </a>
 
-    <!-- 로딩 텍스트 -->
-    <div class="loading-text" id="loadingText">주주 정보를 확인하고 있습니다...</div>
+  <!-- 로딩 화면 -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p><b>주주 정보</b>를<br>확인하고 있습니다.</p>
+  </div>
 
-    <script>
-        function showLoading() {
-            // 버튼 클릭 시 로딩 스피너와 텍스트를 보여줌
-            document.getElementById('loader').style.display = 'block';
-            document.getElementById('loadingText').style.display = 'block';
+  <div class="loading" id="loading2">
+    <div class="spinner"></div>
+    <p><b>가이드북</b>을<br>불러오고 있습니다.</p>
+  </div>
 
-            // 2초 동안 로딩 스피너를 보여준 후 페이지 이동
-            setTimeout(function() {
-                window.location.href = 'mywallet.html';
-            }, 2000); // 2초 후에 페이지 이동
-        }
-    </script>
+  <script>
+    document.getElementById('button1').addEventListener('click', function(event) {
+      event.preventDefault(); // 기본 클릭 동작 방지
+      document.getElementById('loading').style.display = 'flex'; // 로딩 화면 표시
+      setTimeout(function() {
+        window.location.href = 'myaccount.html'; // 2초 후 페이지 이동
+      }, 2000);
+    });
+
+    document.getElementById('button2').addEventListener('click', function(event) {
+      event.preventDefault(); // 기본 클릭 동작 방지
+      document.getElementById('loading2').style.display = 'flex'; // 로딩 화면 표시
+      setTimeout(function() {
+        document.getElementById('loading2').style.display = 'none'; // 로딩 화면 숨김
+        window.open('https://online.fliphtml5.com/fhciz/bmpi/', '_blank'); // 새 탭 열기
+      }, 2000);
+    });
+  </script>
 
 </body>
 </html>
